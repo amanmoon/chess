@@ -1,0 +1,22 @@
+.column {
+  display: flex;
+  width: 100px;
+  height: 100px;
+}
+.row {
+  display: flex;
+}
+.selected {
+  background-color: #baca44;
+}
+
+.even {
+  background-color: #769656;
+}
+
+.odd {
+  background-color: #eeeed2;
+}
+.pieceselected{
+  background-color:#ca6e44 ;
+}
