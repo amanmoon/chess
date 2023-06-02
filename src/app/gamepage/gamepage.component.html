@@ -2,6 +2,7 @@
   <div class="row" *ngFor="let row of chessboard; let rowIndex = index">
     <div
       class="column"
+      [class.pieceselected]="initialCol === colIndex && initialRow === rowIndex"
       [class.even]="(rowIndex + colIndex) % 2 === 0"
       [class.odd]="(rowIndex + colIndex) % 2 === 1"
       *ngFor="let col of row; let colIndex = index"
@@ -10,11 +11,13 @@
         moveOrPieceSelect(rowIndex, colIndex, chessboard[rowIndex][colIndex])
       "
     >
-      <img
-        class="pieces"
-        [src]="assemblePieces(rowIndex, colIndex)"
-        alt="this is an image"
-      />
+      <div>
+        <img
+          class="pieces"
+          [src]="assemblePieces(rowIndex, colIndex)"
+          alt="this is an image"
+        />
+      </div>
     </div>
   </div>
 </div>

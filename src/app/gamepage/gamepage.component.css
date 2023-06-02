@@ -1,5 +1,12 @@
+img {
+  display: flex;
+  width: 80px;
+  height: 80px;
+}
 .column {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100px;
   height: 100px;
 }
@@ -17,6 +24,16 @@
 .odd {
   background-color: #eeeed2;
 }
-.pieceselected{
-  background-color:#ca6e44 ;
+.pieceselected {
+  background-color: #ca6e44;
+}
+.dot {
+  border-radius: 50%;
+  background-color: #D6D6BD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  height: 50px;
+  width: 50px;
 }
