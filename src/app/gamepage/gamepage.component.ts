@@ -5,7 +5,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
   styleUrls: ['./gamepage.component.css'],
 })
 export class GamepageComponent implements OnInit {
-  playercolour: string | null = 'black';
+  playercolour: string | null = 'white';
   opponentcolour: string | null = 'black';
   moveRow: number = 0;
   select: boolean = false;
@@ -145,17 +145,27 @@ export class GamepageComponent implements OnInit {
     initialCol: number,
     piece: string
   ) {
-    if (piece.split('_')[1] === 'king' && row === 7 && col === 1) {
+    if (
+      piece.split('_')[1] === 'king' &&
+      this.hasKingSideRookMoved == false &&
+      this.hasCatseled === false &&
+      this.hasKingMoved === false &&
+      ((row === 7 && col === 1) || (row === 7 && col === 2))
+    ) {
       for (let i = 0; i < this.moveValidator.length; i++) {
         if (
           row === this.moveValidator[i][0] &&
           col === this.moveValidator[i][1]
         ) {
-          console.log('sfadfwfsadf');
           this.chessboard[initialRow][initialCol] = ' ';
           this.chessboard[row][col] = piece;
-          this.chessboard[7][0] = ' ';
-          this.chessboard[7][2] = this.playercolour + '_rook';
+          if (piece.split('_')[0] === 'white') {
+            this.chessboard[7][0] = ' ';
+            this.chessboard[7][3] = this.playercolour + '_rook';
+          } else {
+            this.chessboard[7][0] = ' ';
+            this.chessboard[7][2] = this.playercolour + '_rook';
+          }
           this.hasCatseled = true;
 
           this.select = false;
@@ -163,7 +173,13 @@ export class GamepageComponent implements OnInit {
           this.pieceselected;
         }
       }
-    } else if (piece.split('_')[1] === 'king' && row === 7 && col === 5) {
+    } else if (
+      this.hasQueenSideRookMoved === false &&
+      this.hasKingMoved === false &&
+      this.hasCatseled === false &&
+      piece.split('_')[1] === 'king' &&
+      ((row === 7 && col === 6) || (row === 7 && col === 5))
+    ) {
       for (let i = 0; i < this.moveValidator.length; i++) {
         if (
           row === this.moveValidator[i][0] &&
@@ -171,8 +187,13 @@ export class GamepageComponent implements OnInit {
         ) {
           this.chessboard[initialRow][initialCol] = ' ';
           this.chessboard[row][col] = piece;
-          this.chessboard[7][7] = ' ';
-          this.chessboard[7][4] = this.playercolour + '_rook';
+          if (piece.split('_')[0] === 'white') {
+            this.chessboard[7][7] = ' ';
+            this.chessboard[7][5] = this.playercolour + '_rook';
+          } else {
+            this.chessboard[7][7] = ' ';
+            this.chessboard[7][4] = this.playercolour + '_rook';
+          }
           this.hasCatseled = true;
           this.select = false;
         } else {
@@ -188,20 +209,23 @@ export class GamepageComponent implements OnInit {
           this.chessboard[initialRow][initialCol] = ' ';
           this.chessboard[row][col] = piece;
           this.select = false;
+          if (piece === this.playercolour + '_king') {
+            this.hasCatseled = true;
+          }
         } else {
           this.pieceselected;
         }
       }
     }
     if (
-      this.chessboard[7][0] === this.playercolour + '_rook' &&
+      piece === this.playercolour + '_rook' &&
       this.initialCol === 0 &&
       this.initialRow === 7
     ) {
       this.hasKingSideRookMoved = true;
       console.log('king');
     } else if (
-      this.chessboard[7][7] === this.playercolour + '_rook' &&
+      piece === this.playercolour + '_rook' &&
       this.initialCol === 7 &&
       this.initialRow === 7
     ) {
@@ -551,7 +575,9 @@ export class GamepageComponent implements OnInit {
       this.hasCatseled === false &&
       this.hasQueenSideRookMoved === false &&
       this.chessboard[row][col + 2] === ' ' &&
-      this.chessboard[row][col + 1] === ' '
+      this.chessboard[row][col + 1] === ' ' &&
+      (this.chessboard[row][col + 3] === this.playercolour + '_rook' ||
+        this.chessboard[row][col + 3] === ' ')
     ) {
       this.moveValidator.push([row, col + 2]);
     }
@@ -560,7 +586,9 @@ export class GamepageComponent implements OnInit {
       this.hasCatseled === false &&
       this.hasKingSideRookMoved === false &&
       this.chessboard[row][col - 2] === ' ' &&
-      this.chessboard[row][col - 1] === ' '
+      this.chessboard[row][col - 1] === ' ' &&
+      (this.chessboard[row][col - 3] === this.playercolour + '_rook' ||
+        this.chessboard[row][col - 3] === ' ')
     ) {
       this.moveValidator.push([row, col - 2]);
     }
