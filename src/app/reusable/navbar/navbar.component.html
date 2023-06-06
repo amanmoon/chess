@@ -1,0 +1,32 @@
+<nav
+  class="navbar"
+  [ngClass]="{ expanded: showExpandedNavbar }"
+  (mouseenter)="showExpandedNavbar = true"
+  (mouseleave)="showExpandedNavbar = false"
+>
+  <ul class="navbar-list">
+    <li class="navbar-item">
+      <img src="../../../assets/menu.png" alt="menu" class="navbar-icon" id="menu-icon"/>
+    </li>
+    <li class="navbar-item">
+      <img src="../../../assets/home.png" alt="Home" class="navbar-icon" />
+      <span class="navbar-icon-name">Home</span>
+    </li>
+    <li class="navbar-item">
+      <img
+        src="../../../assets/strategy.png"
+        alt="Play"
+        class="navbar-icon"
+      />
+      <span class="navbar-icon-name">Play</span>
+    </li>
+    <li class="navbar-item">
+      <img src="../../../assets/robot.png" alt="Computer" class="navbar-icon" />
+      <span class="navbar-icon-name">Computer</span>
+    </li>
+    <li class="navbar-item">
+      <img src="../../../assets/man.png" alt="Profile" class="navbar-icon" />
+      <span class="navbar-icon-name">Profile</span>
+    </li>
+  </ul>
+</nav>

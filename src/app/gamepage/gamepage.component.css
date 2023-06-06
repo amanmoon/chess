@@ -9,12 +9,18 @@ img {
   justify-content: center;
   width: 100px;
   height: 100px;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10 and IE Edge */
+  user-select: none; 
 }
 .row {
   display: flex;
+  cursor: grab;
 }
 .selected {
   background-color: #baca44;
+  cursor: grabbing;
 }
 
 .even {
@@ -26,14 +32,19 @@ img {
 }
 .pieceselected {
   background-color: #ca6e44;
+  cursor: grabbing;
 }
 .dot {
+cursor: grabbing;
   border-radius: 50%;
-  background-color: #D6D6BD;
+  background-color: #d6d6bd;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0.7;
   height: 50px;
   width: 50px;
+}
+.pieces{
+  pointer-events: none;
 }
