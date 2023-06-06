@@ -7,6 +7,7 @@ import { GamepageComponent } from './reusable/gamepage/gamepage.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavbarComponent } from './reusable/navbar/navbar.component';
+import { PlayComponent } from './pages/play/play.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './reusable/navbar/navbar.component';
     GamepageComponent,
     LoginpageComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,

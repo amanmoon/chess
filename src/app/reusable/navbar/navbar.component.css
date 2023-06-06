@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .navbar.expanded {
@@ -31,12 +30,11 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: start;
 }
 
 .navbar-icon {
   width: 40px;
-  height: 40px;
+  height: 40px; 
 }
 
 .navbar-icon-name {
