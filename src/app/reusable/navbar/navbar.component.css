@@ -57,7 +57,7 @@
   width: 200px;
 }
 
-.navbar-item:hover .navbar-icon-name {
+.navbar-item .navbar-icon-name:hover {
   opacity: 1;
   transition: background-color 0.5s ease-in-out;
   background-color: #eeeed2;

@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GamepageComponent } from './gamepage/gamepage.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { GamepageComponent } from './reusable/gamepage/gamepage.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavbarComponent } from './reusable/navbar/navbar.component';
 
 @NgModule({
